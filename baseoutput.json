@@ -1,0 +1,21 @@
+{
+    "attributes": {},
+    "children": [
+        {
+            "attributes": {},
+            "children": [
+                {
+                    "attributes": {
+                        "font-size": "13px",
+                        "background-color": "#fce7b4"
+                    },
+                    "children": [
+                    ],
+                    "tagName": "mj-container"
+                }
+            ],
+            "tagName": "mj-body"
+        }
+    ],
+    "tagName": "mjml"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "jsonmjmlconversion",
+  "version": "1.0.0",
+  "description": "1. Run python file **pyhtonConversionScript.py** to get **finaljsonoutput.json** file containing the layer details in json format.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rojanshr1996/mjml-test-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rojanshr1996/mjml-test-1/issues"
+  },
+  "homepage": "https://github.com/rojanshr1996/mjml-test-1#readme",
+  "dependencies": {
+    "json2mjml": "^1.0.3",
+    "mjml2json": "^1.0.1",
+    "node-modules": "^1.0.1"
+  }
+}
