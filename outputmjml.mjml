@@ -1,0 +1,42 @@
+<mjml>
+  <mj-body>
+    <mj-container background-color="#fce7b4" font-size="">
+      <mj-section background-color="" padding-bottom="" padding-top="">
+        <mj-column vertical-align="top" width="">
+          <mj-image align="CENTER" border-radius="px" height="30.0px" padding-bottom="" padding-left="169.0px" padding-right="" padding-top="101.0px" src="https://s3-alpha-sig.figma.com/img///" width="30px"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#2D344" padding-bottom="" padding-top="">
+        <mj-column vertical-align="top" width="">
+          <mj-text align="CENTER" color="#ffffff" font-family="ABeeZee" font-size="24px" padding-bottom="" padding-left="" padding-right="" padding-top="" width="320px">
+            Responsive HTML email templates
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#2D344" padding-bottom="" padding-top="">
+        <mj-column vertical-align="top" width="">
+          <mj-text align="CENTER" color="#ffffff" font-family="ABeeZee" font-size="17px" padding-bottom="" padding-left="" padding-right="" padding-top="" width="280px">
+            More than 50% of total email opens occurred on a mobile device. A mobile-friendly  is a must for email campaigns.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="" padding-bottom="" padding-top="">
+        <mj-column vertical-align="top" width="">
+          <mj-button align="CENTER" background-color="#E9703E" border-radius="16px" color="#FFFFFF" font-family="" font-size="" height="108.0px" padding-left="44.0px" padding-top="490.0px" padding="" width="280px"></mj-button>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="" padding-bottom="" padding-top="">
+        <mj-column width="">
+          <mj-divider border-color="#ffffff" border-style="SOLID" border-width="44.0px" width="169px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#2D344" padding-bottom="" padding-top="">
+        <mj-column vertical-align="top" width="">
+          <mj-text align="CENTER" color="#828999" font-family="ABeeZee" font-size="13px" padding-bottom="" padding-left="" padding-right="" padding-top="" width="280px">
+            This email template was sent to you becouse we want to make the world a better place. You could change your subscription settings anytime.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>
