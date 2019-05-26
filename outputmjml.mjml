@@ -22,7 +22,12 @@
           <mj-image align="CENTER" border-radius="px" height="27.0px" padding-bottom="" padding-left="2522.0px" padding-right="" padding-top="1399.0px" src="" width="161px"></mj-image>
         </mj-column>
       </mj-section>
-      <mj-section background-color="#202020" padding-bottom="" padding-top="">
+      <mj-section background-color="#000000" padding-bottom="" padding-top="">
+        <mj-column vertical-align="top" width="">
+          <mj-image align="CENTER" border-radius="px" height="473.0px" padding-bottom="" padding-left="1506.0px" padding-right="" padding-top="2247.0px" src="https://s3-alpha-sig.figma.com/img/7b84/3d9d/34ee38badd51d07808818f4244c48985?Expires=1559520000&Signature=Jpxm302wfaX32ujsp6OCtBEqdQ7MUe~cRoGQQtGwKdjSjjS4NdXH2akrobApUOcUz8oB6IHeYuCGDQro9avmhDEgsw5aGKgyJcBjN-lmUBj3BsYJTq6nEU6L5wYBcAHxK39NRbIoNIA1tipOk0Ksghb9nQkhIyI7UCFv-mCM17TSi7mpqYlZvCsD2QVIuVlLXZr9xt14eiLKBFfshZWTOabIwI6QMAHGx2553dh96i2wkmNbI6mMyWVqgbcOJIN930Lx1HjvWk5zLswT0qpt2ubnv657pJUnsbN9FxBA6ncADx9THpRyYD7lY3w02yIuz5A4JXnmiF~WNZ518jc82Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" width="1200px"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="0" padding-bottom="" padding-top="">
         <mj-column vertical-align="top" width="">
           <mj-text align="LEFT" color="#ffffff" font-family="ABeeZee" font-size="30px" padding-bottom="" padding-left="" padding-right="" padding-top="" width="163px">
             Try it today
