@@ -4,14 +4,19 @@ import sys
 import os
 
 headers = {
-    'X-FIGMA-TOKEN': '13671-45fd49f1-ba98-4333-b317-a0f82e6094c2',
+    'X-FIGMA-TOKEN': '13790-d3163adb-206e-4993-9ed8-280bc6397740',
 }
 
-response = requests.get('https://api.figma.com/v1/files/Rn8xpFzATy7KbDhOwe9XS1PK', headers=headers).json()
+response1 = requests.get('https://api.figma.com/v1/files/aiaQm47Zw7ErDbSVlAWdydJn/images', headers=headers).json()
+
+response = requests.get('https://api.figma.com/v1/files/aiaQm47Zw7ErDbSVlAWdydJn', headers=headers).json()
 y = json.dumps(response, indent=4)
 
 # looping through the json data to get section data
 data1 = response['document']['children'][0]['children'][0]['children']
+# print(data1)
+data2 = response1['meta']['images']
+# print(data2)
 
 # base variables contains the minimal base code of the mjml
 base = {u'attributes': {}, u'children': [{u'attributes': {}, u'children': [{u'attributes': {u'font-size': u'', u'background-color': u''}, u'children': [], u'tagName': u'mj-container'}], u'tagName': u'mj-body'}], u'tagName': u'mjml'}
@@ -199,7 +204,7 @@ def imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text
     for key,value in image[0]['attributes'].items():
         if key == "src":
             # print(src)
-            image[0]['attributes'][key] = str(src)
+            image[0]['attributes'][key] = src
 
     for key2,value2 in image[0]['attributes'].items():
         if key2 == "width":
@@ -240,6 +245,16 @@ def imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text
 text_pass = text_pass2 = text_pass3 = text_pass4 = text_pass5 = text_pass7 = text_pass8 = button_text = text_pass10 = ''
 text1 = text2 = text3 = text_pass7 = text_pass13 = src=''
 t1=t2=t3=sc1=color1=0
+c1 = ''
+
+# for k2,v2 in data2.items():
+#     # c1 = v2
+#     print(k2)
+
+# for x_values, y_values in zip(data2.items(), value1[1]['fills'][0].items()):
+#     print(x_values,y_values)
+#     if x_values == y_values
+
 for list1 in data1:
         for key1,value1 in list1.items():
                 if key1 == 'fills':
@@ -256,11 +271,11 @@ for list1 in data1:
                             v1 = v1 *255
                             t3 = int(v1)
                             sc1 = '#%02x%02x%02x' % (t1,t2,t3)
-                            print(sc1)
-                            # print(t1,t2,t3)
-                # else:
-                #     sc1 = color1
-
+                            # print(sc1)
+                        # print(t1,t2,t3)
+                else:
+                    sc1 = color1
+                    # print(sc1)
 
                 if key1 == 'children':
                         for key2,value2 in value1[1].items():
@@ -284,21 +299,6 @@ for list1 in data1:
                                                             v4 = v4 *255
                                                             text6 = int(v4)
                                                             color1 = '#%02x%02x%02x' % (text4, text5, text6)
-
-                                                    # print(key2)
-                                        # if k2 == "fills":
-                                        #     text1=text2=text3=src =''
-                                        #     for k4,v4 in value1[1]['children'][2]['fills'][0].items():
-                                        #         # print(k4,v4)
-                                        #         if k4 == 'imageRef':
-                                        #             # print("okay")
-                                        #             text_pass13 = v4
-                                        #             text1 = text_pass13[:4]
-                                        #             text2 = text_pass13[4:8]
-                                        #             text3 = text_pass13[8:]
-                                        #             # print(text1,text2,text3)
-                                        #             src="https://s3-alpha-sig.figma.com/img/" + text1 + "/" + text2 + "/" + text3 + "?Expires=1559520000&Signature="
-
 
                                 if key2 == 'characters':
                                     text_pass = value2
@@ -339,7 +339,8 @@ for list1 in data1:
                                             # print("truw")
                                             if test_value < 0:
                                                 text_pass7 = test_value + 600
-
+                                            # elif test_value > 600:
+                                            #     text_pass7 = 600
                                             else:
                                                 text_pass7 = test_value
                                                 # print(text_pass7)
@@ -369,6 +370,7 @@ for list1 in data1:
                                                     color1 = '#%02x%02x%02x' % (text4, text5, text6)
                                                     # print(color1)
                                                     # print(text4,text5,text6)
+
                                 #
 
                                 if key2 == "fills":
@@ -379,16 +381,23 @@ for list1 in data1:
                                             # print(key11)
 
                                 if key2 == "fills":
-                                    # print(key2)
                                     for key11,value11 in value1[1]['fills'][0].items():
                                         if key11 == 'imageRef':
-                                            text_pass13 = value11
-                                            text1 = text_pass13[:4]
-                                            text2 = text_pass13[4:8]
-                                            text3 = text_pass13[8:]
-                                            # print(text1,text2,text3)
-                                            src = "https://s3-alpha-sig.figma.com/img/" + text1 + "/" + text2 + "/" + text3 + "?Expires=1559520000&Signature="
-                                            imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
+                                            # print(value11)
+                                            for x,y in data2.items():
+                                                if value11 == x:
+                                                    c1 = y
+                                                    # print(c1)
+                                                    imageElement(c1,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
+
+
+                                                # if x_values == y_values
+                                    #         text_pass13 = value11
+                                    #         text1 = text_pass13[:4]
+                                    #         text2 = text_pass13[4:8]
+                                    #         text3 = text_pass13[8:]
+                                    #         # print(text1,text2,text3)
+                                    #         src = "https://s3-alpha-sig.figma.com/img/" + text1 + "/" + text2 + "/" + text3 + "?Expires=1559520000&Signature="
 
                                 if key2 == "cornerRadius":
                                     text_pass10 = int(value2)
