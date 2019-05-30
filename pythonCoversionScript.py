@@ -7,9 +7,15 @@ headers = {
     'X-FIGMA-TOKEN': '13790-d3163adb-206e-4993-9ed8-280bc6397740',
 }
 
-response1 = requests.get('https://api.figma.com/v1/files/aiaQm47Zw7ErDbSVlAWdydJn/images', headers=headers).json()
+# data = sys.argv[1]
+url = ('https://api.figma.com/v1/files/' + sys.argv[1] + '/images')
+url1 = ('https://api.figma.com/v1/files/' + sys.argv[1])
 
-response = requests.get('https://api.figma.com/v1/files/aiaQm47Zw7ErDbSVlAWdydJn', headers=headers).json()
+# response1 = requests.get('https://api.figma.com/v1/files/aiaQm47Zw7ErDbSVlAWdydJn/images', headers=headers).json()
+response1 = requests.get(url, headers=headers).json()
+
+# response = requests.get('https://api.figma.com/v1/files/aiaQm47Zw7ErDbSVlAWdydJ', headers=headers).json()
+response = requests.get(url1, headers=headers).json()
 y = json.dumps(response, indent=4)
 
 # looping through the json data to get section data
@@ -84,7 +90,8 @@ def textSection(text_pass,text_pass2,text_pass3,text_pass4,text_pass5,color1,sc1
     jsonFile.close()
 
 # function to add button section
-def buttonSection(button_text,text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass10,color1,sc1):
+# def buttonSection(button_text,text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass10,color1,sc1):
+def buttonSection(button_text,text_pass5,text_pass8,text_pass9,text_pass10,color1,sc1):
     section = {u'attributes': {u'padding-top': u'', u'background-color': u'', u'padding-bottom': u''}, u'children': [{u'attributes': {u'width': u'', u'vertical-align': u'top'}, u'tagName': u'mj-column'}], u'tagName': u'mj-section'}
     finalSection = section['children'][0]
 
@@ -118,13 +125,13 @@ def buttonSection(button_text,text_pass5,text_pass6,text_pass7,text_pass8,text_p
         if key6 == "border-radius":
             button_section[0]['attributes'][key6] = str(text_pass10) + "px"
 
-    for key2,value2 in button_section[0]['attributes'].items():
-        if key2 == "padding-top":
-            button_section[0]['attributes'][key2] = str(text_pass6) + "px"
-
-    for key7,value7 in button_section[0]['attributes'].items():
-        if key7 == "padding-left":
-            button_section[0]['attributes'][key7] = str(text_pass7) + "px"
+    # for key2,value2 in button_section[0]['attributes'].items():
+    #     if key2 == "padding-top":
+    #         button_section[0]['attributes'][key2] = str(text_pass6) + "px"
+    #
+    # for key7,value7 in button_section[0]['attributes'].items():
+    #     if key7 == "padding-left":
+    #         button_section[0]['attributes'][key7] = str(text_pass7) + "px"
 
     for key8,value8 in button_section[0]['attributes'].items():
         if key8 == "color":
@@ -140,7 +147,8 @@ def buttonSection(button_text,text_pass5,text_pass6,text_pass7,text_pass8,text_p
     jsonFile.close()
 
 # function to add line segment
-def lineElement(text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass11,color1,sc1):
+# def lineElement(text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass11,color1,sc1):
+def lineElement(text_pass5,text_pass8,text_pass9,text_pass11,color1,sc1):
 
     section = {u'attributes': {u'padding-top': u'', u'background-color': u'', u'padding-bottom': u''}, u'children': [{u'attributes': {u'width': u''}, u'tagName': u'mj-column'}], u'tagName': u'mj-section'}
     finalSection = section['children'][0]
@@ -171,13 +179,13 @@ def lineElement(text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass
         if key6 == "border-style":
             line[0]['attributes'][key6] = str(text_pass11)
 
-    for key7,value7 in line[0]['attributes'].items():
-        if key7 == "padding-top":
-            line[0]['attributes'][key7] = str(text_pass6) + "px"
-
-    for key8,value8 in line[0]['attributes'].items():
-        if key8 == "padding-left":
-            line[0]['attributes'][key8] = str(text_pass7) + "px"
+    # for key7,value7 in line[0]['attributes'].items():
+    #     if key7 == "padding-top":
+    #         line[0]['attributes'][key7] = str(text_pass6) + "px"
+    #
+    # for key8,value8 in line[0]['attributes'].items():
+    #     if key8 == "padding-left":
+    #         line[0]['attributes'][key8] = str(text_pass7) + "px"
 
     finalSection['children'] = line
     output_data.append(dict(section))
@@ -188,7 +196,8 @@ def lineElement(text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass
     jsonFile.close()
 
 # function to triger the element in the base file
-def imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1):
+# def imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1):
+def imageElement(src,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1):
     section = {u'attributes': {u'padding-top': u'', u'background-color': u'', u'padding-bottom': u''}, u'children': [{u'attributes': {u'width': u'', u'vertical-align': u'top'}, u'tagName': u'mj-column'}], u'tagName': u'mj-section'}
     finalSection = section['children'][0]
 
@@ -223,15 +232,15 @@ def imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text
             # print(text_pass10)
             image[0]['attributes'][key6] = str(text_pass10) + "px"
 
-    for key7,value7 in image[0]['attributes'].items():
-        if key7 == "padding-top":
-            # print(text_pass6)
-            image[0]['attributes'][key7] = str(text_pass6) + "px"
-
-    for key8,value8 in image[0]['attributes'].items():
-        if key8 == "padding-left":
-            # print(text_pass7)
-            image[0]['attributes'][key8] = str(text_pass7) + "px"
+    # for key7,value7 in image[0]['attributes'].items():
+    #     if key7 == "padding-top":
+    #         # print(text_pass6)
+    #         image[0]['attributes'][key7] = str(text_pass6) + "px"
+    #
+    # for key8,value8 in image[0]['attributes'].items():
+    #     if key8 == "padding-left":
+    #         # print(text_pass7)
+    #         image[0]['attributes'][key8] = str(text_pass7) + "px"
 
     finalSection['children'] = image
     output_data.append(dict(section))
@@ -242,23 +251,34 @@ def imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text
     jsonFile.close()
 
 # loop for text section
-text_pass = text_pass2 = text_pass3 = text_pass4 = text_pass5 = text_pass7 = text_pass8 = button_text = text_pass10 = ''
+text_pass = text_pass2 = text_pass3 = text_pass4 = text_pass5 = text_pass7 = text_pass8 = button_text = text_pass9 = text_pass10 = text_pass11 = ''
 text1 = text2 = text3 = text_pass7 = text_pass13 = src=''
 t1=t2=t3=sc1=color1=0
-c1 = ''
+src = ''
 
-# for k2,v2 in data2.items():
-#     # c1 = v2
-#     print(k2)
 
-# for x_values, y_values in zip(data2.items(), value1[1]['fills'][0].items()):
-#     print(x_values,y_values)
-#     if x_values == y_values
 
 for list1 in data1:
         for key1,value1 in list1.items():
+                # if key1 == 'children':
+                #     for key2,value2 in list1['children'][2].items():
+                #         # print(key2,value2)
+                #         if key2 == "fills":
+                #             for key11,value11 in list1['children'][2]['fills'][0].items():
+                #                 # print(key11,value11)
+                #                 if key11 == 'imageRef':
+                #                     # print(value11)
+                #                     for x,y in data2.items():
+                #                         if value11 == x:
+                #                             src = y
+                #                             # print(src)
+                #                             imageElement(src,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
+                #                             lineElement(text_pass5,text_pass8,text_pass9,text_pass11,color1,sc1)
+                #                             buttonSection(button_text,text_pass5,text_pass8,text_pass9,text_pass10,color1,sc1)
+                #                             # imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
+
                 if key1 == 'fills':
-                    # print("okay")
+                    # print(key1,value1)
                     for k1,v1 in list1['fills'][0]['color'].items():
                         # print(k1,v1)
                         if k1 == 'r':
@@ -275,7 +295,7 @@ for list1 in data1:
                         # print(t1,t2,t3)
                 else:
                     sc1 = color1
-                    # print(sc1)
+
 
                 if key1 == 'children':
                         for key2,value2 in value1[1].items():
@@ -301,6 +321,7 @@ for list1 in data1:
                                                             color1 = '#%02x%02x%02x' % (text4, text5, text6)
 
                                 if key2 == 'characters':
+                                    # print(value2)
                                     text_pass = value2
 
                                 if key2 == 'style':
@@ -324,27 +345,31 @@ for list1 in data1:
                                 if key2 == "absoluteBoundingBox":
                                     for key6,value6 in value1[1]['absoluteBoundingBox'].items():
                                         if key6 == "width":
+                                            if value6 > 600:
+                                                # print(value6)
+                                                value6 = 600
+                                                text_pass5 = int(value6)
+                                            if value6 < 0:
+                                                value6 = abs(value6+600)
+                                                text_pass5 = int(value6)
                                             text_pass5 = int(value6)
 
-                                if key2 == "absoluteBoundingBox":
-                                    for key7,value7 in value1[1]['absoluteBoundingBox'].items():
-                                        if key7 == "y":
-                                            text_pass6 = value7
-                                            # print(key7,value7)
-
-                                if key2 == "absoluteBoundingBox":
-                                    for key8,value8 in value1[1]['absoluteBoundingBox'].items():
-                                        if key8 == "x":
-                                            test_value = value8
-                                            # print("truw")
-                                            if test_value < 0:
-                                                text_pass7 = test_value + 600
-                                            # elif test_value > 600:
-                                            #     text_pass7 = 600
-                                            else:
-                                                text_pass7 = test_value
-                                                # print(text_pass7)
-                                            # print(key8,text_pass7)
+                                # if key2 == "absoluteBoundingBox":
+                                #     for key7,value7 in value1[1]['absoluteBoundingBox'].items():
+                                #         if key7 == "y":
+                                #             text_pass6 = value7
+                                #             # print(key7,value7)
+                                #
+                                # if key2 == "absoluteBoundingBox":
+                                #     for key8,value8 in value1[1]['absoluteBoundingBox'].items():
+                                #         if key8 == "x":
+                                #             test_value = value8
+                                #             if test_value < 0:
+                                #                 text_pass7 = abs(test_value) - 600
+                                #             else:
+                                #                 text_pass7 = test_value
+                                #                 # print(text_pass7)
+                                #             print(key8,text_pass7)
                                 #
                                 if key2 == "strokeAlign":
                                         text_pass9 = value2
@@ -371,10 +396,7 @@ for list1 in data1:
                                                     # print(color1)
                                                     # print(text4,text5,text6)
 
-                                #
-
                                 if key2 == "fills":
-                                    # print(key2)
                                     for key11,value11 in value1[1]['fills'][0].items():
                                         if key11 == "type":
                                             text_pass11 = value11
@@ -382,22 +404,17 @@ for list1 in data1:
 
                                 if key2 == "fills":
                                     for key11,value11 in value1[1]['fills'][0].items():
+                                        # print(key11,value11)
                                         if key11 == 'imageRef':
                                             # print(value11)
                                             for x,y in data2.items():
                                                 if value11 == x:
-                                                    c1 = y
-                                                    # print(c1)
-                                                    imageElement(c1,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
-
-
-                                                # if x_values == y_values
-                                    #         text_pass13 = value11
-                                    #         text1 = text_pass13[:4]
-                                    #         text2 = text_pass13[4:8]
-                                    #         text3 = text_pass13[8:]
-                                    #         # print(text1,text2,text3)
-                                    #         src = "https://s3-alpha-sig.figma.com/img/" + text1 + "/" + text2 + "/" + text3 + "?Expires=1559520000&Signature="
+                                                    src = y
+                                                    # print(src)
+                                                    imageElement(src,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
+                                                    lineElement(text_pass5,text_pass8,text_pass9,text_pass11,color1,sc1)
+                                                    buttonSection(button_text,text_pass5,text_pass8,text_pass9,text_pass10,color1,sc1)
+                                                    # imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
 
                                 if key2 == "cornerRadius":
                                     text_pass10 = int(value2)
@@ -412,14 +429,20 @@ for list1 in data1:
 
 
                                 if key2 == "name" and value2 == "section-hrline":
-                                    lineElement(text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass11,color1,sc1)
+                                    lineElement(text_pass5,text_pass8,text_pass9,text_pass11,color1,sc1)
+                                    # lineElement(text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass11,color1,sc1)
 
                                 if key2 == "name" and value2 == "section-button-1":
-                                    buttonSection(button_text,text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass10,color1,sc1)
+                                    buttonSection(button_text,text_pass5,text_pass8,text_pass9,text_pass10,color1,sc1)
+                                    # buttonSection(button_text,text_pass5,text_pass6,text_pass7,text_pass8,text_pass9,text_pass10,color1,sc1)
 
                                 if key2 == "name" and value2 == "section-image":
-                                    imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
+                                    imageElement(src,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
+                                    # imageElement(src,text_pass6,text_pass7,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
 
+                                # if key2 == "name" and value2 == "section-logo-1":
+                                #     # for k9,v9 in value1[1].items():
+                                #     logoElement(src,text_pass4,text_pass5,text_pass8,text_pass9,text_pass10,text_pass11,sc1)
 
 
 os.system("node ./node_modules/.bin/json2mjml final.json outputmjml.mjml")
