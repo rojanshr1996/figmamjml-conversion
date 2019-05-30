@@ -5,7 +5,10 @@
         
 Python command:
 
-	python3 pythonConversionScript.py
+	python3 pythonConversionScript.py <File_ID>
+	
+	Example:
+	python3 pythonConversionScript.py Rn8xpFzATy7KbDhOwe9XS1PK
     
 2. **Json2mjml** tool can change json to mjml and mjml cli tool can change mjml into the responsive html. 
 
